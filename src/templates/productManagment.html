@@ -1,0 +1,47 @@
+{% extends 'navbar-manager.html' %}
+{% block title %}
+Product Managment
+{% endblock %}
+{% block body %}
+<div class="extend">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="../static/table/style.css" />
+  <main>
+    <form method="post" enctype="multipart/form-data">
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in val %}
+          <tr>
+            <td>{{i[1]}}</td>
+            <td><img class="image" src="../static/product/{{i[5]}}" width="100" height="100" alt="product"></td>
+            <td>{{i[2]}}</td>
+            <td>₹{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>
+              <button type="submit" formaction="{{url_for('prod_edit',id=i[0])}}">Edit</button>
+            </td>
+            <td>
+              <button type="submit" formaction="{{url_for('prod_delete',id=i[0])}}"
+                onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+  </main>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../static/table/main.js"></script>
+</div>
+{% endblock %}

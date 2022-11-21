@@ -1,0 +1,56 @@
+{% extends 'navbar-manager.html' %}
+{% block title %}
+More info
+{% endblock %}
+{% block body %}
+<div class="extend">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+	<link rel="stylesheet" href="./static/table/style.css" />
+	<main>
+		<form method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+						<th>Net Amount</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for i in res %}
+					<tr>
+						<input type="hidden" name="pid" value="{{i[6]}}">
+						<input type="hidden" name="qty" value="{{i[1]}}">
+						<td>{{i[0]}}</td>
+						<td>{{i[1]}}</td>
+						<td>{{i[2]}}</td>
+						<td>{{i[3]}}</td>
+						<td></td>
+					</tr>
+					{% endfor %}
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>Total Amount: </td>
+						<td>{{val[0][0]}}</td>
+						<!-- <td>{{res[0][4]}}</td> -->
+						<td>
+							<button type="submit" formaction="{{url_for('cartremove',id=res[0][5])}}"
+								onclick="return confirm('Are you sure?');">Done</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</main>
+</div>
+{% endblock %}

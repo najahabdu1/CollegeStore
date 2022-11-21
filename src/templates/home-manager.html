@@ -1,0 +1,32 @@
+{% extends 'navbar-manager.html' %}
+{% block title %}
+Manager's Panel
+{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="../static/home/style.css">
+<div class="home">
+    <input type="hidden" id="user" value="Manager">
+    <div class="home_desc">
+        <h1 class="home_h1">
+            <script src="../static/home/js/greeting.js"></script>
+        </h1>
+        <p>Please select through the navigation bar or through the detailed list below:</p>
+        <ol>
+            <li class="home_li"><a href="/productReg" class="home_a">Product Registeration</a>
+                <Details>This page gives a form in which a new products details can be registered </Details>
+            </li>
+            <li class="home_li"><a href="/productMan" class="home_a">Product Management</a>
+                <Details>This page shows the list of products in the store in which product can be updated and can be
+                    deleted if needed.</Details>
+            </li>
+            <li class="home_li"><a href="/cart" class="home_a">View Cart List</a>
+                <Details>This page shows cart list that contain the students cart informations.</Details>
+            </li>
+        </ol>
+    </div>
+    <div>
+        <img class="home_image" src="../static/home/body.png" alt="homepage">
+    </div>
+</div>
+<script src="../static/home/js/main.js"></script>
+{% endblock %}

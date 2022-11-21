@@ -1,0 +1,32 @@
+{% extends 'navbar-admin.html' %}
+{% block title %}
+Admin's Panel
+{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="../static/home/style.css">
+<div class="home">
+    <input type="hidden" id="user" value="Admin">
+    <div class="home_desc">
+        <h1 class="home_h1">
+            <script src="../static/home/js/greeting.js"></script>
+        </h1>
+        <p>Please select through the navigation bar or through the detailed list below:</p>
+        <ol>
+            <li class="home_li"><a href="/product" class="home_a">Product Details</a>
+                <Details>This page shows the list of products in the store. The page will show name, image, quantity and price of the products.</Details>
+            </li>
+            <li class="home_li"><a href="/productShortage" class="home_a">Shortage Information</a>
+                <Details>This page shows the list of products that have shortage in the store.</Details>
+            </li>
+            <li class="home_li"><a href="/feed" class="home_a">Feedbacks</a>
+                <Details>This page shows the feedbacks from the students.</Details>
+            </li>
+            <li class="home_li"><a href="/complaints" class="home_a">Complaints</a>
+                <Details>This page shows the complaints from the students to which a reply can be written.</Details>
+            </li>
+        </ol>
+    </div>
+    <img src="../static/home/body.png" alt="homepage">
+</div>
+<script src="../static/home/js/main.js"></script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'navbar-admin.html' %}
+{% block title %}
+Complaints
+{% endblock %}
+{% block body %}
+<div class="extend">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="../static/table/style.css" />
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Complaint</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in val %}
+        <tr>
+          <td>{{i[0]}} {{i[1]}}</td>
+          <td>{{i[2]}}</td>
+          <td>{{i[3]}}</td>
+          <td class="select"><button class="button" id="{{i[4]}}">Reply</button></td>
+          <div class="detail {{i[4]}}">
+            <div class="detail-container">
+              <form method="POST">
+                <dl>
+                  <dt>
+                    <textarea name="textarea{{i[4]}}" id="message" placeholder="please type a reply message here.." maxlength="150"
+                      required></textarea>
+                  </dt>
+                  <dd><button type="submit" class="replySubmit" id="submit" formaction="/reply?id={{i[4]}}">Send</button>
+                  </dd>
+                </dl>
+              </form>
+            </div>
+            <div class="detail-nav">
+              <button class="close {{i[4]}}">Close</button>
+            </div>
+          </div>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../static/table/main.js"></script>
+</div>
+{% endblock %}

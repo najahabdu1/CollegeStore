@@ -1,0 +1,61 @@
+{% extends 'navbar-manager.html' %}
+{% block title %}
+Product Registeration
+{% endblock %}
+{% block body %}
+<div class="extend">
+  <link rel="stylesheet" type="text/css" href="../static/form/style.css">
+  <div class="bg-contact2">
+    <div class="container-contact2">
+      <div class="wrap-contact2">
+        <form class="contact2-form validate-form" method="post" action="/productReg" enctype="multipart/form-data">
+          <span class="contact2-form-title">
+            Product Registeration
+          </span>
+
+          <div class="wrap-input2 validate-input" data-validate="Name is required">
+            <input class="input2" type="text" name="product">
+            <span class="focus-input2" data-placeholder="Product Name"></span>
+          </div>
+
+          <div class="wrap-input2 validate-input" data-validate="Image is required">
+            <div><label for="img" id="img-label" class="input2">Select Image:</label></div>
+            <img class="preview" alt="image-preview"id="preview" hidden>
+            <input class="input2" type="file" accept="image/*" name="img" id="img">
+            <span class="focus-input2"></span>
+          </div>
+
+          <div class="wrap-input2 validate-input" data-validate="Description is required">
+            <input class="input2" type="text" name="description">
+            <span class="focus-input2" data-placeholder="Description"></span>
+          </div>
+
+          <div class="wrap-input2 validate-input" data-validate="Valid Price is required">
+            <input class="input2" type="text" name="price">
+            <span class="focus-input2" data-placeholder="Price"></span>
+          </div>
+
+          <div class="wrap-input2 validate-input" data-validate="Valid Quantity is required">
+            <input class="input2" type="text" name="quantity">
+            <span class="focus-input2" data-placeholder="Quantity"></span>
+          </div>
+
+          <div class="container-contact2-form-btn">
+            <div class="wrap-contact2-form-btn">
+              <div class="contact2-form-bgbtn"></div>
+              <button class="contact2-form-btn">
+                Register this Product
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="../static/form/js/jquery-3.2.1.min.js"></script>
+  <script src="../static/form/js/popper.js"></script>
+  <script src="../static/form/js/bootstrap.min.js"></script>
+  <script src="../static/form/js/select2.min.js"></script>
+  <script src="../static/form/js/main.js"></script>
+</div>
+{% endblock %}

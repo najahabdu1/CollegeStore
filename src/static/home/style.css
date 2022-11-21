@@ -1,0 +1,41 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_desc {
+  width: 35rem;
+  height: 27rem;
+}
+
+.home_h1 {
+  font-weight: 700 !important;
+  font-family: Montserrat;
+}
+
+details {
+  margin: auto;
+}
+
+.ftco-section {
+  padding-bottom: 0 !important;
+}
+
+.home_image {
+  width: auto;
+  height: auto;
+}
+
+.home_a {
+  color: #202040;
+  font-weight: bold;
+}
+
+.home_a:hover {
+  color: #f1bc31;
+}
+
+.home_li {
+  padding: 5px;
+}

@@ -1,0 +1,59 @@
+{% extends 'navbar-manager.html' %}
+{% block title %}
+Cart List
+{% endblock %}
+{% block body %}
+<div class="extend">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+	<link rel="stylesheet" href="../static/table/style.css" />
+	<main>
+		<form action="cartsearch" method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>Enter Cart Code</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="textfield" name="textfield" id="textfield" value="{{val}}" required>
+							<button type="submit" id="submit">Search</button>
+							<a href="/cartview" class="button">View All</a><p></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="details" hidden>
+				<thead>
+					<tr>
+						<th>Cart ID</th>
+						<th>Username</th>
+						<th>Address</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for i in search %}
+					<tr class="foo">
+						<td>{{i[1]}}</td>
+						<td>{{i[2]}} {{i[3]}}</td>
+						<td>{{i[4]}} {{i[5]}}, {{i[6]}}</td>
+						<td><a href="{{url_for('cartlist2',id=i[0],cid=i[1])}}" class="button">more info</a></td>
+					</tr>
+					{% endfor %}
+					{% for i in full %}
+					<tr class="foo">
+						<td>{{i[0]}}</td>
+						<td>{{i[1]}} {{i[2]}}</td>
+						<td>{{i[3]}} {{i[4]}}, {{i[5]}}</td>
+						<td><a href="{{url_for('cartlist2',id=i[6],cid=i[0])}}" class="button">more info</a></td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</form>
+	</main>
+	<script src="../static/table/cartlist.js"></script>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'navbar-admin.html' %}
+{% block title %}
+Feedbacks
+{% endblock %}
+{% block body %}
+<div class="extend">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+	<link rel="stylesheet" href="./static/table/style.css" />
+	<main>
+		<table>
+			<thead>
+				<tr>
+					<th>User Name</th>
+					<th>Feedback</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in val %}
+				<tr>
+					<td>{{i[0]}} {{i[1]}}</td>
+					<td>{{i[2]}}</td>
+					<td>{{i[3]}}</td>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+</div>
+{% endblock %}
